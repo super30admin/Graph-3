@@ -1,0 +1,32 @@
+TC: O(n^2)
+SC: O(n)
+
+Approach: Find celebrity which knows no one.If he exists and everyone knows him return the answer.
+
+public class Solution extends Relation {
+    public int findCelebrity(int n) {
+        int celeb = -1;
+        for(int i=0 ; i<n; i++){
+            int count=0;
+            for(int j=0; j<n; j++){
+                if(i==j) { count++;
+                         continue;}
+                if (knows(i,j)) {
+                    count++;
+                }
+                if(count>1) break;
+            }
+             if(count==1) {
+                 celeb = i;
+                 break;   
+             }
+        }
+        if( celeb ==-1) return -1;
+        
+        for(int i=0; i< n; i++){
+            if(!knows(i,celeb)) return -1;
+        }
+        
+        return celeb;
+    }
+}
