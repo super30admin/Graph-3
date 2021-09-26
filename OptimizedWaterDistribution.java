@@ -2,9 +2,9 @@ import java.util.*;
 
 public class OptimizedWaterDistribution {
 
-    // Houses are disconnected, we need to connect them. If we connect any of them
-    // others will be connected automatically.
-    // Union Find approach will be build a wall for cheapest cost and connect the
+    // Houses are disconnected, we need to connect them. If we connect few of them
+    // others will be connected automatically as they will be getting water from a well via pipes.
+    // Union Find approach will be build a well for cheapest cost and connect the
     // all houses using pipes.
     // So, Assuming Dummy house pipe connection equalent to wall cost.
     // And form edges between all nodes. And star union operation - If it is in same
