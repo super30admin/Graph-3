@@ -4,4 +4,6 @@
 
 ## Problem 2:Find Celebrity(https://leetcode.com/problems/find-the-celebrity/)
 
+## Problem 3: Verifying an Alien Dictionary (https://leetcode.com/problems/verifying-an-alien-dictionary/)
 
+## Problem 4: Alien Dictionary (https://leetcode.com/problems/alien-dictionary/)
