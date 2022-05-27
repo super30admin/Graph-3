@@ -24,10 +24,11 @@ class Solution:
             edges.append(edge)
         
         edges.sort(key = lambda x:x[2])
+        # print("edges", edges)
         result = 0
         for edge in edges:
-            px = self.find(edge[0])
-            py = self.find(edge[1])
+            px = self.find(edge[0]) # find parent of x 
+            py = self.find(edge[1]) # find parent of y
             if px != py:
                 result += edge[2]
                 self.uf[px] = py
@@ -42,3 +43,6 @@ class Solution:
 # Time Complexity: O[(n+m).log(n+m)]
 # Space Complexity: O(n+m)
 # where n = number of houses, m = number of pipes
+
+
+
