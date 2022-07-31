@@ -24,6 +24,15 @@ wells.length == n
 1 <= pipes[i][0], pipes[i][1] <= n
 0 <= pipes[i][2] <= 10^5
 pipes[i][0] != pipes[i][1]
+
+
+TC: O(e log e)
+Let total edges be e.
+Sorting: O(e log e)
+Path compression is lesser - figure out TC of path compression
+
+
+SC: O(max(e, n)) -> we could have no edges but n > 0
 */
 
 class Main {
