@@ -29,8 +29,9 @@ pipes[i][0] != pipes[i][1]
 TC: O(e log e)
 Let total edges be e.
 Sorting: O(e log e)
-Path compression is lesser - figure out TC of path compression
-
+If no path compression, time to find parent in worst case would be O(n * e).
+But with path compression, it is lesser.
+Bulk of the time comes from sorting.
 
 SC: O(max(e, n)) -> we could have no edges but n > 0
 */
