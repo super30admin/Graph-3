@@ -1,0 +1,42 @@
+T.c --> O(m+nlog(m+n))
+S.c --> O(m+n)
+
+class Solution {
+    int[] u;
+    public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
+        if(n == 0){
+            return 0;
+        }
+        List<int[]> result = new ArrayList<>();
+        for(int i =0; i<wells.length; i++){
+            result.add(new int[] {0,i+1,wells[i]});
+        }
+        for(int[] pipe: pipes){
+            result.add(pipe);
+        }
+        Collections.sort(result, (a,b) -> a[2]-b[2]);
+        int total = 0;
+        u = new int[n+1];
+        for(int i =0; i<=n; i++){
+           u[i] = i; 
+        }
+        for(int[] res: result){
+            int x = res[0];
+            int y = res[1];
+            int cost = res[2];
+            int px = find(x);
+            int py = find(y);
+            if( px != py){
+                total= total+cost;
+                u[py] = px;
+            }
+        }
+        return total;
+    }
+    public int find(int x){
+         if(x != u[x]){
+            u[x] = find(u[x]);
+         }
+         return u[x];
+    }
+}
