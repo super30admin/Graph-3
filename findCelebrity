@@ -1,0 +1,63 @@
+// Time Complexity :O(n*n)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:two pass algorithm with extra o(n) space
+
+/* The knows API is defined in the parent class Relation.
+      boolean knows(int a, int b); */
+
+public class Solution extends Relation {
+    /**
+     * @param n a party with n people
+     * @return the celebrity's label or -1
+     */
+    public int findCelebrity(int n) {
+        // Write your code here
+        int[] people=new int[];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i == j)continue;
+                if(knows(i,j)){
+                    people[i]--;
+                    people[j]++;
+                }
+            }
+        }
+        for(int i=0;i<ni++){
+            if(people[i] == n-1){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:one pass algorithm with no extra space
+/* The knows API is defined in the parent class Relation.
+      boolean knows(int a, int b); */
+
+      public class Solution extends Relation {
+        /**
+         * @param n a party with n people
+         * @return the celebrity's label or -1
+         */
+        public int findCelebrity(int n) {
+            // Write your code here
+            int celeb=0;
+            for(int i=1;i<n;i++){
+                if(knows(celeb,i)){
+                    celeb=i;
+                }
+            }
+            for(int i=0;i<n;i++){
+                if(knows(celeb,i) || !knows(i,celeb)){return -1;}
+            }
+            return celeb;
+        }
+    }
